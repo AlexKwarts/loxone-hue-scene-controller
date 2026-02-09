@@ -241,15 +241,14 @@ void UpdateScene(int i, int value)
   }
   else if (bulbType[i] == TYPE_GROUP_OFF)
   {
-    if (value == 0) // Trigger group off when input is 0
+    if (value > 0) // Trigger group off when input is non-zero (CHANGE THIS LINE)
     {
       SetGroupOff(id, i);
     }
-    // Do nothing when value is 1 (no action)
-  }
-  else
-  {
-    setoutput(i, 0); // Reset output for TYPE_NONE or other cases
+    else
+    {
+      setoutput(i, 0); // Optional: Reset output when input is 0, for consistency with scenes
+    }
   }
 }
 
